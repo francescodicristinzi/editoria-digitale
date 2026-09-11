@@ -1,0 +1,10 @@
+tipo: modifica
+voce: ai-office
+richiesta: test test test
+sources:
+- ref: gpai-code-of-practice
+  locator: ART 123
+motivazione: test test test
+issue: 1
+stato: rimandata
+nota: motivazione sotto le venti parole
