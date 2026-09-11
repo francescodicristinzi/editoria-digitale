@@ -1,0 +1,57 @@
+# GENERATO da scripts/build.py (templates/issue-modifica.yml.j2): non modificare a mano.
+name: "Proponi una modifica a una voce"
+description: "Definizione, traduzione, nota d'ambito, varianti o relazioni di una voce esistente."
+title: "[Modifica] "
+labels: ["proposta", "modifica"]
+body:
+  - type: markdown
+    attributes:
+      value: "Ogni proposta viene controllata e letta; la decisione, con la motivazione, viene pubblicata qui e nella storia della voce. I campi con * sono obbligatori."
+  - type: input
+    id: voce
+    attributes:
+      label: "Voce"
+      description: "L'identificativo della voce, quello nell'indirizzo della sua pagina. Dal collegamento in fondo alla voce arriva già compilato."
+      placeholder: "ai-system"
+    validations: {required: true}
+  - type: textarea
+    id: richiesta
+    attributes:
+      label: "Che cosa cambieresti"
+      description: "Scrivi liberamente: che cosa va cambiato e come. Un assistente traduce la richiesta nei campi della voce, e un editor decide."
+    validations: {required: true}
+  - type: textarea
+    id: motivazione
+    attributes:
+      label: "Motivazione"
+      description: "Perché la voce attuale non va bene e perché la modifica la migliora. Almeno venti parole."
+    validations: {required: true}
+  - type: dropdown
+    id: fonte
+    attributes:
+      label: "Fonte"
+      options:
+        - "ai-act — Regulation (EU) 2024/1689 (Artificial Intelligence Act)"
+        - "coe-framework-convention — Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS No. 225)"
+        - "gpai-code-of-practice — General-Purpose AI Code of Practice"
+        - "ddl-ia-2025 — Disegno di legge italiano su disposizioni e deleghe in materia di intelligenza artificiale (2025)"
+        - "iso-iec-22989 — ISO/IEC 22989:2022"
+        - "iso-iec-23894 — ISO/IEC 23894:2023"
+        - "nist-ai-rmf — NIST AI RMF 1.0"
+        - "nist-ai-100-5 — NIST AI 100-5"
+        - "research-literature — Letteratura scientifica (riferimento generico)"
+        - "hleg-ethics-guidelines — Ethics Guidelines for Trustworthy AI"
+    validations: {required: true}
+  - type: input
+    id: locatore
+    attributes:
+      label: "Punto preciso della fonte"
+      placeholder: "Art. 3(1); recital 12; Clause 3.1.4"
+    validations: {required: true}
+  - type: checkboxes
+    id: condizioni
+    attributes:
+      label: "Condizioni"
+      options:
+        - label: "Accetto che proposta, discussione e decisione motivata siano pubbliche, con licenza CC BY 4.0."
+          required: true

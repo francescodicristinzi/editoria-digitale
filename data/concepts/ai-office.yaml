@@ -1,0 +1,21 @@
+id: ai-office
+status: approved
+perspective:
+- legal
+prefLabel:
+  en: AI Office
+  it: Ufficio per l'IA
+definition:
+  en: >-
+    The Commission's function of contributing to the implementation, monitoring and supervision of AI
+    systems and general-purpose AI models, and AI governance, provided for in Commission Decision of 24
+    January 2024.
+  it: >-
+    Funzione della Commissione volta a contribuire all'attuazione, al monitoraggio e alla supervisione
+    dei sistemi di IA e dei modelli di IA per finalità generali e alla governance dell'IA, prevista dalla
+    decisione della Commissione del 24 gennaio 2024.
+related:
+- scientific-panel-of-independent-experts
+sources:
+- ref: ai-act
+  locator: Art. 3(47); Art. 64

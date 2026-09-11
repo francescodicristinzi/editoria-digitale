@@ -1,0 +1,50 @@
+# GENERATO da scripts/build.py (templates/issue-modifica.yml.j2): non modificare a mano.
+name: "Proponi una modifica a una voce"
+description: "Definizione, traduzione, nota d'ambito, varianti o relazioni di una voce esistente."
+title: "[Modifica] "
+labels: ["proposta", "modifica"]
+body:
+  - type: markdown
+    attributes:
+      value: "Ogni proposta viene controllata e letta; la decisione, con la motivazione, viene pubblicata qui e nella storia della voce. I campi con * sono obbligatori."
+  - type: input
+    id: voce
+    attributes:
+      label: "Voce"
+      description: "L'identificativo della voce, quello nell'indirizzo della sua pagina. Dal collegamento in fondo alla voce arriva già compilato."
+      placeholder: "ai-system"
+    validations: {required: true}
+  - type: textarea
+    id: richiesta
+    attributes:
+      label: "Che cosa cambieresti"
+      description: "Scrivi liberamente: che cosa va cambiato e come. Un assistente traduce la richiesta nei campi della voce, e un editor decide."
+    validations: {required: true}
+  - type: textarea
+    id: motivazione
+    attributes:
+      label: "Motivazione"
+      description: "Perché la voce attuale non va bene e perché la modifica la migliora. Almeno venti parole."
+    validations: {required: true}
+  - type: dropdown
+    id: fonte
+    attributes:
+      label: "Fonte"
+      options:
+{% for k, f in fonti.items() %}
+        - "{{ k }} — {{ f.short or f.title }}"
+{% endfor %}
+    validations: {required: true}
+  - type: input
+    id: locatore
+    attributes:
+      label: "Punto preciso della fonte"
+      placeholder: "Art. 3(1); recital 12; Clause 3.1.4"
+    validations: {required: true}
+  - type: checkboxes
+    id: condizioni
+    attributes:
+      label: "Condizioni"
+      options:
+        - label: "Accetto che proposta, discussione e decisione motivata siano pubbliche, con licenza {{ meta.archiviazione.rights }}."
+          required: true

@@ -1,0 +1,23 @@
+# I metadati del tesauro come oggetto, in tre blocchi: uno per funzione.
+# Il build li legge e li porta dove servono: nell'<head> delle pagine, negli export,
+# nei documenti. Si scrivono qui e in nessun altro posto.
+
+gestione_documentale:              # i parametri della produzione
+  title: AI Governance Thesaurus
+  title_it: Tesauro bilingue sulla governance dell'intelligenza artificiale
+  version: 2.0.0
+  languages: [en, it]
+  base_url: "https://francescodicristinzi.github.io/editoria-digitale"
+  repository: "https://github.com/francescodicristinzi/editoria-digitale"   # da qui i link ai moduli delle proposte
+
+archiviazione:                     # Dublin Core: per chi cataloga o conserva
+  creator: Francesco Di Cristinzi
+  publisher: Università degli Studi di Milano
+  date: 2026-09-10
+  subject: [artificial intelligence, governance, AI Act, thesaurus, controlled vocabulary]
+  description: Vocabolario controllato bilingue (EN-IT) che mette in relazione la terminologia normativa, tecnica e concettuale della governance dell'IA, con definizioni citate dalle fonti, relazioni semantiche e allineamenti agli standard.
+  rights: CC BY 4.0
+  type: Dataset
+
+distribuzione:                     # schema.org: per chi cerca sul web
+  schema_org_type: DefinedTermSet

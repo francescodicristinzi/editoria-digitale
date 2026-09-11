@@ -1,0 +1,17 @@
+/* Il pannello dei filtri dell'indice: una griglia, gruppi di chip, un piede */
+.filtri { background: var(--md-code-bg-color); border-radius: .5em; padding: 1em 1.2em; margin: 1em 0 1.5em; display: grid; gap: .9em; }
+.filtri-cerca { display: flex; flex-direction: column; gap: .3em; font-size: .78em; font-weight: 600; color: var(--md-default-fg-color--light); }
+.filtri-cerca input { font: inherit; font-weight: 400; font-size: 1.1em; padding: .45em .6em; border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .3em; background: var(--md-default-bg-color); color: var(--md-default-fg-color); }
+.filtri-gruppo { display: flex; flex-wrap: wrap; align-items: center; gap: .4em; }
+.filtri-gruppo > span { font-size: .78em; font-weight: 600; color: var(--md-default-fg-color--light); min-width: 6.5em; }
+.filtri-piede { display: flex; justify-content: space-between; align-items: center; font-size: .8em; color: var(--md-default-fg-color--light); }
+
+/* Le chip: un bottone acceso o spento */
+.chip { font: inherit; font-size: .78em; padding: .3em .8em; border-radius: 1em; cursor: pointer;
+  border: 1px solid var(--md-default-fg-color--lightest); background: transparent; color: var(--md-default-fg-color--light); }
+.chip[aria-pressed="true"] { background: var(--md-primary-fg-color); color: var(--md-primary-bg-color); border-color: var(--md-primary-fg-color); font-weight: 600; }
+.chip.p-legal[aria-pressed="true"] { background: #e3f2fd; color: #0d47a1; border-color: #0d47a1; }
+.chip.p-technical[aria-pressed="true"] { background: #f3e5f5; color: #4a148c; border-color: #4a148c; }
+.chip.p-conceptual[aria-pressed="true"] { background: #fbe9e7; color: #bf360c; border-color: #bf360c; }
+.chip:focus-visible { outline: 2px solid var(--md-accent-fg-color); outline-offset: 2px; }

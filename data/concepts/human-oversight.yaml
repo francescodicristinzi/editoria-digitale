@@ -1,0 +1,54 @@
+id: human-oversight
+status: proposed
+perspective:
+- legal
+- technical
+- conceptual
+prefLabel:
+  en: Human oversight
+  it: Sorveglianza umana
+altLabel:
+  en:
+  - Human-in-the-loop
+  it:
+  - Supervisione umana
+definition:
+  en: >-
+    Measures that enable natural persons to understand, monitor and, where necessary, intervene in
+    the operation of an AI system, so as to prevent or minimise risks to health, safety or
+    fundamental rights.
+  it: >-
+    Misure che consentono a persone fisiche di comprendere, monitorare e, ove necessario,
+    intervenire nel funzionamento di un sistema di IA, per prevenire o ridurre al minimo i rischi
+    per la salute, la sicurezza o i diritti fondamentali.
+scopeNote:
+  en: >-
+    For the law it is a design requirement of high-risk systems; for engineering it is a family of
+    patterns (human-in-the-loop, on-the-loop, in-command); for ethics it is the condition that
+    preserves human agency. Use this term for all three; do not confuse with "Autonomy", which is
+    the property of the system.
+  it: >-
+    Per il diritto è un requisito di progettazione dei sistemi ad alto rischio; per l'ingegneria è
+    una famiglia di schemi (human-in-the-loop, on-the-loop, in-command); per l'etica è la condizione
+    che preserva l'autonomia della persona. Usare questo termine per tutti e tre; non confondere con
+    "Autonomia", che è la proprietà del sistema.
+related:
+- high-risk-ai-system
+- risk-management-system
+- autonomy
+- trustworthy-ai
+sources:
+- ref: ai-act
+  locator: Art. 14
+- ref: coe-framework-convention
+  locator: Art. 8
+- ref: hleg-ethics-guidelines
+  locator: Requirement 1, human agency and oversight
+alignments:
+- standard: nist-ai-rmf
+  clause: Sec. 5.1 (Govern)
+  term: human oversight
+  relation: relatedMatch
+  note: >-
+    Nel NIST la sorveglianza umana compare fra le pratiche della funzione Govern, non come requisito
+    di progettazione. Riferimento da verificare sul testo.

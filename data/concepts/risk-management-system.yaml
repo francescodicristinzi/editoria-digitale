@@ -1,0 +1,36 @@
+id: risk-management-system
+status: approved
+perspective:
+- legal
+- technical
+prefLabel:
+  en: Risk management system
+  it: Sistema di gestione del rischio
+altLabel:
+  en:
+  - RMS
+definition:
+  en: >-
+    A continuous iterative process run throughout the entire lifecycle of a high-risk AI system, requiring
+    regular updates, monitoring, and mitigation of risks.
+  it: >-
+    Processo iterativo continuo, svolto lungo l'intero ciclo di vita di un sistema di IA ad alto rischio,
+    che richiede aggiornamenti regolari, monitoraggio e attenuazione dei rischi.
+related:
+- quality-management-system
+sources:
+- ref: ai-act
+  locator: Art. 3(42)
+alignments:
+- standard: iso-iec-23894
+  clause: Clause 6
+  term: risk management process
+  relation: closeMatch
+  note: >-
+    La clausola 6 di ISO/IEC 23894 riguarda i processi di gestione del rischio, specializzazione per l'IA
+    di ISO 31000. Il testo dello standard e' a pagamento e NON e' stato consultato: l'allineamento resta
+    da verificare.
+- standard: nist-ai-rmf
+  clause: Sec. 5 (AI RMF Core)
+  term: 'Govern, Map, Measure, Manage'
+  relation: relatedMatch

@@ -1,0 +1,7 @@
+pyyaml
+jsonschema
+jinja2
+mkdocs
+mkdocs-material
+weasyprint
+langgraph

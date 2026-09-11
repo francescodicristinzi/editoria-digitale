@@ -1,0 +1,64 @@
+# GENERATO da scripts/build.py (templates/issue-nuova-voce.yml.j2): non modificare a mano.
+name: "Proponi una voce nuova"
+description: "Un concetto che il tesauro non ha ancora."
+title: "[Nuova voce] "
+labels: ["proposta", "nuova-voce"]
+body:
+  - type: markdown
+    attributes:
+      value: "Prima di proporre, cerca il termine nell'indice: potrebbe esserci con un altro nome. I campi con * sono obbligatori."
+  - type: input
+    id: prefLabel_en
+    attributes: {label: "Termine (EN)", description: "Come lo scrive la fonte."}
+    validations: {required: true}
+  - type: input
+    id: prefLabel_it
+    attributes: {label: "Termine (IT)", description: "Dalla versione italiana ufficiale, se esiste."}
+    validations: {required: true}
+  - type: textarea
+    id: definition_en
+    attributes: {label: "Definizione (EN)", description: "Citata dalla fonte, non parafrasata."}
+    validations: {required: true}
+  - type: textarea
+    id: definition_it
+    attributes: {label: "Definizione (IT)"}
+  - type: dropdown
+    id: perspective
+    attributes:
+      label: "Prospettive"
+      description: "Da quali mondi il concetto è definito."
+      multiple: true
+      options: ["legal", "technical", "conceptual"]
+    validations: {required: true}
+  - type: dropdown
+    id: fonte
+    attributes:
+      label: "Fonte"
+      options:
+{% for k, f in fonti.items() %}
+        - "{{ k }} — {{ f.short or f.title }}"
+{% endfor %}
+    validations: {required: true}
+  - type: input
+    id: locatore
+    attributes: {label: "Punto preciso della fonte", placeholder: "Art. 4; Clause 3.1.7"}
+    validations: {required: true}
+  - type: textarea
+    id: relazioni
+    attributes:
+      label: "Relazioni con voci esistenti"
+      description: "Facoltativo. Identificativi delle voci: BT per il termine più generale, RT per gli associati."
+      placeholder: "BT: ai-system\nRT: high-risk-ai-system, transparency"
+  - type: textarea
+    id: motivazione
+    attributes:
+      label: "Motivazione"
+      description: "Perché il concetto serve: uso nelle fonti, ambiguità che risolve, lacuna che colma. Almeno venti parole."
+    validations: {required: true}
+  - type: checkboxes
+    id: condizioni
+    attributes:
+      label: "Condizioni"
+      options:
+        - label: "Accetto che proposta, discussione e decisione motivata siano pubbliche, con licenza {{ meta.archiviazione.rights }}."
+          required: true

@@ -1,0 +1,8 @@
+# generati dal build: si rifanno con un comando, non si versionano
+docs/
+site/
+__pycache__/
+.DS_Store
+
+# segreti: la chiave del modello sta qui e non entra mai nel repository
+.env

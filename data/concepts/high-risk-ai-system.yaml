@@ -1,0 +1,27 @@
+id: high-risk-ai-system
+status: approved
+perspective:
+- legal
+prefLabel:
+  en: High-risk AI system
+  it: Sistema di IA ad alto rischio
+definition:
+  en: >-
+    An AI system classified as high-risk under Article 6: either a product, or a safety component of a
+    product, covered by the Union harmonisation legislation listed in Annex I and subject to third-party
+    conformity assessment, or a system falling within one of the areas listed in Annex III.
+  it: >-
+    Sistema di IA classificato ad alto rischio ai sensi dell'articolo 6: un prodotto, o un componente
+    di sicurezza di un prodotto, disciplinato dalla normativa di armonizzazione dell'Unione elencata nell'allegato
+    I e soggetto a valutazione della conformità da parte di terzi, oppure un sistema rientrante in uno
+    dei settori elencati nell'allegato III.
+broader:
+- ai-system
+related:
+- conformity-assessment
+- quality-management-system
+- risk-management-system
+- safety-component
+sources:
+- ref: ai-act
+  locator: Art. 6; Annex I; Annex III

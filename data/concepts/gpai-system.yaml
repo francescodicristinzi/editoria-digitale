@@ -1,0 +1,26 @@
+id: gpai-system
+status: approved
+perspective:
+- legal
+- technical
+prefLabel:
+  en: General-purpose AI system
+  it: Sistema di IA per finalità generali
+altLabel:
+  en:
+  - GPAI system
+definition:
+  en: >-
+    An AI system which is based on a general-purpose AI model and which has the capability to serve a
+    variety of purposes, both for direct use as well as for integration in other AI systems.
+  it: >-
+    Sistema di IA basato su un modello di IA per finalità generali e che ha la capacità di perseguire
+    varie finalità, sia per uso diretto sia per integrazione in altri sistemi di IA.
+broader:
+- ai-system
+related:
+- capability-with-high-impact
+- systemic-risk
+sources:
+- ref: ai-act
+  locator: Art. 3(66)

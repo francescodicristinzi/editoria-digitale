@@ -1,0 +1,12 @@
+{#- L'unico ritocco al tema: i meta Dublin Core nell'<head> di ogni pagina.
+    I valori arrivano dal front matter che build.py scrive in ogni pagina,
+    a partire da tesauro.yaml e dalla voce. -#}
+{% extends "base.html" %}
+{% block extrahead %}
+  {% if page and page.meta.dc %}
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+  {% for nome, valore in page.meta.dc.items() %}
+  <meta name="DC.{{ nome }}" content="{{ valore }}">
+  {% endfor %}
+  {% endif %}
+{% endblock %}

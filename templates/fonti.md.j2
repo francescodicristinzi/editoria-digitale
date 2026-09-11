@@ -1,0 +1,24 @@
+# Fonti e standard
+
+Ogni voce cita le sue fonti per chiave da questo registro, con il punto preciso
+(articolo, clausola) scritto nella voce. Gli standard tecnici sono anche il termine di
+confronto degli allineamenti.
+
+## Fonti normative e documenti
+
+{% for k, f in fonti.items() if f.type not in ('standard', 'framework') %}
+### {{ f.title }}
+
+{% if f.title_it %}*{{ f.title_it }}*<br>{% endif %}{{ f.type }} · {{ f.publisher }} · {{ f.date }} · accesso {{ f.access }}{% if f.license %} ({{ f.license }}){% endif %}{% if f.url %} · [testo]({{ f.url }}){% endif %}
+<br>Citata da: {% for cid in citata[k] %}[{{ cid | nome }}](voci/{{ cid }}.md){% if not loop.last %}, {% endif %}{% else %}nessuna voce, per ora{% endfor %}
+
+{% endfor %}
+## Standard tecnici e framework
+
+{% for k, f in fonti.items() if f.type in ('standard', 'framework') %}
+### {{ f.title }}
+
+{{ f.type }} · {{ f.publisher }} · {{ f.date }} · accesso {{ f.access }}{% if f.access == 'paid' %} *(gli allineamenti non sono verificabili sul testo)*{% endif %}{% if f.url %} · [scheda]({{ f.url }}){% endif %}
+<br>Voci allineate: {% for cid in allineata[k] %}[{{ cid | nome }}](voci/{{ cid }}.md){% if not loop.last %}, {% endif %}{% else %}nessuna, per ora{% endfor %}
+
+{% endfor %}

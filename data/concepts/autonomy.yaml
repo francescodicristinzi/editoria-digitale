@@ -1,0 +1,50 @@
+id: autonomy
+status: proposed
+perspective:
+- conceptual
+- technical
+- legal
+prefLabel:
+  en: Autonomy
+  it: Autonomia
+altLabel:
+  en:
+  - Level of autonomy
+  it:
+  - Livello di autonomia
+definition:
+  en: >-
+    Characteristic of a system that can operate, and modify its goals or its domain of use, without
+    external intervention, control or oversight; in AI systems it comes in degrees.
+  it: >-
+    Caratteristica di un sistema che può operare, e modificare i propri obiettivi o il proprio
+    ambito d'uso, senza intervento, controllo o sorveglianza esterni; nei sistemi di IA si presenta
+    per gradi.
+scopeNote:
+  en: >-
+    A concept with three histories: in philosophy it names the self-determination of persons, in
+    engineering a measurable property of systems, in the AI Act a defining element of the AI
+    system ("varying levels of autonomy"). Here it means the property of the system. For the design
+    paradigm use "Agentic AI"; for the human counterpart use "Human oversight".
+  it: >-
+    Un concetto con tre storie: in filosofia indica l'autodeterminazione delle persone, in
+    ingegneria una proprietà misurabile dei sistemi, nel regolamento un elemento della definizione
+    di sistema di IA ("livelli di autonomia variabili"). Qui indica la proprietà del sistema. Per il
+    paradigma progettuale usare "Agentic AI"; per la controparte umana "Sorveglianza umana".
+related:
+- ai-system
+- agentic-ai
+sources:
+- ref: ai-act
+  locator: Art. 3(1); recital 12
+- ref: hleg-ethics-guidelines
+  locator: Requirement 1, human agency and oversight
+alignments:
+- standard: iso-iec-22989
+  clause: "3.1.7"
+  term: autonomy
+  relation: exactMatch
+  note: >-
+    Lo standard definisce l'autonomia come caratteristica di un sistema capace di modificare il
+    proprio ambito d'uso o obiettivo senza intervento esterno; il regolamento la usa senza
+    definirla. Clausola da verificare sul testo.

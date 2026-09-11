@@ -1,0 +1,44 @@
+id: agentic-ai
+status: approved
+perspective:
+- conceptual
+- technical
+prefLabel:
+  en: Agentic AI
+  it: IA agentica
+altLabel:
+  en:
+  - Agent-based AI
+  - Autonomous AI
+  it:
+  - IA autonoma
+definition:
+  en: >-
+    A form of AI where models are embedded in agents that can autonomously perform complex tasks, including
+    planning, interaction with digital/physical environments, and collaboration with other agents.
+  it: >-
+    Forma di IA in cui i modelli sono integrati in agenti capaci di svolgere autonomamente compiti complessi,
+    tra cui pianificare, interagire con ambienti digitali o fisici e collaborare con altri agenti.
+scopeNote:
+  en: >-
+    Use for the design paradigm in which AI models are embedded in agents that plan and act with a high
+    degree of autonomy. For autonomy as a property of
+    the system use 'Autonomy'; for the human counterpart use 'Human oversight'.
+  it: >-
+    Usare per il paradigma progettuale in cui i modelli di IA sono integrati in agenti che pianificano
+    e agiscono con elevato grado di autonomia.
+    per l'autonomia come proprietà del sistema usare 'Autonomia'; per la controparte umana 'Sorveglianza umana'.
+broader:
+- ai-system
+sources:
+- ref: nist-ai-100-5
+- ref: research-literature
+alignments:
+- standard: iso-iec-22989
+  clause: 3.1.1
+  term: AI agent
+  relation: broadMatch
+  note: >-
+    Verificato: la clausola 3.1.1 definisce l'AI agent come entita' automatizzata che percepisce l'ambiente,
+    vi risponde e agisce per raggiungere i propri obiettivi. Lo standard non definisce 'agentic AI': la
+    relazione resta di sussunzione, il termine emergente e' piu' ampio.

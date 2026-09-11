@@ -1,0 +1,89 @@
+---
+title: "{{ meta.gestione_documentale.title }}"
+description: "{{ meta.archiviazione.description[:160] }}"
+dc:
+  title: "{{ meta.gestione_documentale.title }}"
+  creator: "{{ meta.archiviazione.creator }}"
+  publisher: "{{ meta.archiviazione.publisher }}"
+  date: "{{ meta.archiviazione.date }}"
+  subject: "{{ meta.archiviazione.subject | join('; ') }}"
+  description: "{{ meta.archiviazione.description }}"
+  language: "{{ meta.gestione_documentale.languages | join(', ') }}"
+  rights: "{{ meta.archiviazione.rights }}"
+  type: "{{ meta.archiviazione.type }}"
+---
+
+# {{ meta.gestione_documentale.title }}
+
+{{ meta.gestione_documentale.title_it }} · versione {{ meta.gestione_documentale.version }} · {{ voci | length }} voci · {{ meta.archiviazione.rights }}
+
+## Le voci
+
+<div class="filtri">
+  <label class="filtri-cerca">Cerca <input id="f-testo" type="search" placeholder="termine, sigla, parola della definizione…" autocomplete="off"></label>
+  <div class="filtri-gruppo" data-gruppo="lingua"><span>Lingua</span>
+    <button type="button" class="chip" data-valore="en" aria-pressed="true">English</button>
+    <button type="button" class="chip" data-valore="it" aria-pressed="false">Italiano</button>
+  </div>
+  <div class="filtri-gruppo" data-gruppo="prospettiva"><span>Prospettiva</span>
+    <button type="button" class="chip" data-valore="" aria-pressed="true">tutte</button>
+    <button type="button" class="chip p-legal" data-valore="legal" aria-pressed="false">normativa-giuridica</button>
+    <button type="button" class="chip p-technical" data-valore="technical" aria-pressed="false">tecnico-operativa</button>
+    <button type="button" class="chip p-conceptual" data-valore="conceptual" aria-pressed="false">concettuale-filosofica</button>
+  </div>
+  <div class="filtri-gruppo" data-gruppo="relazione"><span>Relazioni</span>
+    <button type="button" class="chip" data-valore="" aria-pressed="true">qualsiasi</button>
+    <button type="button" class="chip" data-valore="bt" aria-pressed="false">con BT</button>
+    <button type="button" class="chip" data-valore="nt" aria-pressed="false">con NT</button>
+    <button type="button" class="chip" data-valore="rt" aria-pressed="false">con RT</button>
+    <button type="button" class="chip" data-valore="radice" aria-pressed="false">radici</button>
+  </div>
+  <div class="filtri-gruppo" data-gruppo="standard"><span>Standard</span>
+    <button type="button" class="chip" data-valore="" aria-pressed="true">qualsiasi</button>
+    <button type="button" class="chip" data-valore="*" aria-pressed="false">allineate</button>
+{% for k, f in fonti.items() if f.type in ('standard', 'framework') %}
+    <button type="button" class="chip" data-valore="{{ k }}" aria-pressed="false">{{ f.short or f.title }}</button>
+{% endfor %}
+  </div>
+  <div class="filtri-piede"><span id="f-conta"></span><button type="button" id="f-azzera" class="chip">Azzera i filtri</button></div>
+</div>
+
+<table id="tabella-voci">
+<thead><tr><th>Termine</th><th>Traduzione</th><th>Stato</th><th>Prospettiva</th></tr></thead>
+<tbody>
+{% for v in voci.values() | sort(attribute='prefLabel.en') %}
+<tr data-id="{{ v.id }}"><td><a href="voci/{{ v.id }}/">{{ v.prefLabel.en }}</a></td><td>{{ v.prefLabel.it }}</td><td>{{ v.status }}</td><td>{{ v.perspective | join(', ') }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+Manca un termine? [Proponi una voce nuova]({{ meta.gestione_documentale.repository }}/issues/new?template=nuova-voce.yml) · [come contribuire](contribuire/)
+
+<script>
+window.VOCI = {{ dati | tojson }};
+</script>
+
+## La gerarchia
+
+{% for r in radici %}
+- [{{ r | nome }}](voci/{{ r }}.md)
+{% for f in voci[r].nt %}
+    - [{{ f | nome }}](voci/{{ f }}.md)
+{% endfor %}
+{% endfor %}
+
+## Scarica i dati
+
+| File | Per chi |
+|---|---|
+| [tesauro.json](dati/tesauro.json) | chi vuole i dati in un programma: tutte le voci con relazioni già calcolate, più i metadati |
+| [tesauro.csv](dati/tesauro.csv) | chi vuole i dati in un foglio di calcolo: una riga per voce |
+| [tesauro.pdf](dati/tesauro.pdf) | chi vuole leggere o allegare il tesauro: tutte le voci in un documento, con indice e numeri di pagina |
+
+Come citare: *{{ meta.gestione_documentale.title }}*, versione {{ meta.gestione_documentale.version }}, {{ meta.archiviazione.date }}, {{ meta.archiviazione.rights }}.
+
+<script type="application/ld+json">
+{{ {"@context": "https://schema.org", "@type": meta.distribuzione.schema_org_type, "name": meta.gestione_documentale.title,
+    "description": meta.archiviazione.description, "inLanguage": meta.gestione_documentale.languages,
+    "license": meta.archiviazione.rights, "version": meta.gestione_documentale.version} | tojson }}
+</script>

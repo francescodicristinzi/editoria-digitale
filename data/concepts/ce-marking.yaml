@@ -1,0 +1,23 @@
+id: ce-marking
+status: approved
+perspective:
+- legal
+prefLabel:
+  en: CE marking
+  it: Marcatura CE
+altLabel:
+  en:
+  - CE logo
+definition:
+  en: >-
+    A marking by which the provider indicates that an AI system or GPAI model is in conformity with the
+    requirements of this Regulation and other applicable Union harmonisation legislation.
+  it: >-
+    Marcatura mediante la quale il fornitore indica che un sistema di IA o un modello di IA per finalità
+    generali è conforme ai requisiti del regolamento e all'altra normativa di armonizzazione dell'Unione
+    applicabile.
+related:
+- conformity-assessment
+sources:
+- ref: ai-act
+  locator: Art. 3(37)

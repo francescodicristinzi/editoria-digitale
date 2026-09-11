@@ -1,0 +1,24 @@
+id: quality-management-system
+status: approved
+perspective:
+- legal
+- technical
+prefLabel:
+  en: Quality management system
+  it: Sistema di gestione della qualità
+altLabel:
+  en:
+  - QMS
+definition:
+  en: >-
+    A formalised system that documents processes, procedures, and responsibilities for achieving quality
+    policies and objectives, ensuring compliance with this Regulation for high-risk AI systems.
+  it: >-
+    Sistema formalizzato che documenta processi, procedure e responsabilità per conseguire politiche e
+    obiettivi di qualità, garantendo la conformità al regolamento per i sistemi di IA ad alto rischio.
+related:
+- conformity-assessment
+- risk-management-system
+sources:
+- ref: ai-act
+  locator: Art. 3(33)

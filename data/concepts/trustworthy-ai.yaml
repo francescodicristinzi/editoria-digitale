@@ -1,0 +1,49 @@
+id: trustworthy-ai
+status: proposed
+perspective:
+- conceptual
+- legal
+- technical
+prefLabel:
+  en: Trustworthy AI
+  it: IA affidabile
+altLabel:
+  it:
+  - IA degna di fiducia
+definition:
+  en: >-
+    AI that is lawful, ethical and robust, and whose characteristics of validity, safety, security,
+    accountability, transparency, explainability, privacy and fairness can be assessed throughout
+    its lifecycle.
+  it: >-
+    IA legale, etica e robusta, le cui caratteristiche di validità, sicurezza, protezione,
+    responsabilità, trasparenza, spiegabilità, riservatezza ed equità possono essere valutate lungo
+    tutto il suo ciclo di vita.
+scopeNote:
+  en: >-
+    Born in the ethical debate (the three components of the 2019 Guidelines), it became the declared
+    objective of the AI Act and, for the NIST, a list of measurable characteristics. It is a
+    programme, not a property of a single system: use it for the framework, not to describe a
+    system.
+  it: >-
+    Nato nel dibattito etico (le tre componenti degli Orientamenti del 2019), è diventato
+    l'obiettivo dichiarato del regolamento e, per il NIST, un elenco di caratteristiche misurabili. È
+    un programma, non la proprietà di un singolo sistema: usarlo per il quadro di riferimento, non
+    per descrivere un sistema.
+related:
+- transparency
+- human-oversight
+- risk-management-system
+sources:
+- ref: hleg-ethics-guidelines
+  locator: Chapter I
+- ref: ai-act
+  locator: Art. 1(1); recital 1
+alignments:
+- standard: nist-ai-rmf
+  clause: Sec. 3
+  term: trustworthy AI
+  relation: closeMatch
+  note: >-
+    Il NIST elenca sette caratteristiche dell'IA affidabile; gli Orientamenti europei ne danno tre
+    componenti e sette requisiti. Coincidono in gran parte, non del tutto.

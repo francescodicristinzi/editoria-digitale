@@ -1,0 +1,38 @@
+id: ai-system
+status: approved
+perspective:
+- legal
+- technical
+- conceptual
+prefLabel:
+  en: AI system
+  it: Sistema di intelligenza artificiale
+altLabel:
+  en:
+  - AI
+definition:
+  en: >-
+    A machine-based system that, for explicit or implicit objectives, infers how to generate outputs such
+    as predictions, content, recommendations, or decisions that can influence physical or virtual environments.
+  it: >-
+    Sistema automatizzato che, per obiettivi espliciti o impliciti, deduce dagli input ricevuti come generare
+    output quali previsioni, contenuti, raccomandazioni o decisioni che possono influenzare ambienti fisici
+    o virtuali.
+sources:
+- ref: ai-act
+  locator: Art. 3(1)
+alignments:
+- standard: iso-iec-22989
+  clause: 3.1.4
+  term: artificial intelligence system
+  relation: closeMatch
+  note: >-
+    Verificato: la clausola 3.1.4 definisce l'AI system come sistema ingegnerizzato che genera output
+    per obiettivi definiti dall'uomo. Il regolamento aggiunge la capacita' di inferenza e l'influenza
+    sugli ambienti: relazione di prossimita', non equivalenza.
+- standard: nist-ai-rmf
+  clause: Sec. 1
+  term: AI system
+  relation: relatedMatch
+  note: >-
+    Il NIST AI RMF adotta la definizione OCSE, molto vicina a quella del regolamento.

@@ -1,0 +1,15 @@
+# A ogni pull request che tocca i dati: il validatore. Un sorgente non valido non si unisce.
+name: Valida
+on:
+  pull_request:
+    paths: ["data/**", "scripts/**", "templates/**"]
+permissions: {contents: read}
+jobs:
+  valida:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install pyyaml jsonschema
+      - run: python3 scripts/validate.py

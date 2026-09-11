@@ -1,0 +1,33 @@
+# A ogni proposta aperta o modificata dal modulo: la issue diventa un file in proposte/,
+# il grafo la istruisce senza decidere, l'esito torna sulla issue come commento ed etichetta.
+name: Triage delle proposte
+on:
+  issues: {types: [opened, edited]}
+permissions: {contents: write, issues: write}
+jobs:
+  triage:
+    if: contains(github.event.issue.body, '### Motivazione')      # solo le issue nate dai moduli
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements.txt
+      - name: La issue diventa una proposta
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: echo "FILE=$(python3 scripts/da_issue.py)" >> "$GITHUB_ENV"
+      - name: Istruttoria, senza decisione
+        env:
+          OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
+          OLLAMA_MODEL: ${{ vars.OLLAMA_MODEL }}
+        run: python3 scripts/istruttoria.py "$FILE" --solo-triage < /dev/null || true    # 3 = niente da committare, va bene
+      - name: L'esito sulla issue
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: python3 scripts/esito_issue.py "$FILE" "${{ github.event.issue.number }}"
+      - name: La proposta entra nel repository
+        run: |
+          git config user.name "triage automatico"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add proposte && git commit -q -m "chore(proposte): #${{ github.event.issue.number }}, triage" && git push

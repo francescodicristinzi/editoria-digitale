@@ -1,0 +1,75 @@
+---
+title: "{{ v.prefLabel.en }}"
+description: "{{ v.definition.en[:160] | replace('"', "'") }}"
+dc:
+  title: "{{ v.prefLabel.en }} - {{ meta.gestione_documentale.title }}"
+  creator: "{{ meta.archiviazione.creator }}"
+  publisher: "{{ meta.archiviazione.publisher }}"
+  date: "{{ meta.archiviazione.date }}"
+  language: "{{ meta.gestione_documentale.languages | join(', ') }}"
+  rights: "{{ meta.archiviazione.rights }}"
+{% if meta.gestione_documentale.base_url %}
+  identifier: "{{ meta.gestione_documentale.base_url }}/voci/{{ v.id }}/"
+{% endif %}
+---
+
+# {{ v.prefLabel.en }} <small>/ {{ v.prefLabel.it }}</small>
+
+{{ {'approved': 'approvata', 'proposed': 'proposta', 'deprecated': 'ritirata'}[v.status] }} · prospettiva {{ v.perspective | join(', ') }}
+
+{% if v.status == 'deprecated' %}
+!!! warning "Voce ritirata"
+    Usare **[{{ v.replacedBy | nome }}]({{ v.replacedBy }}.md)**. La voce resta per chi l'ha citata.
+
+{% endif %}
+**Definition (EN).** {{ v.definition.en }}
+
+**Definizione (IT).** {{ v.definition.it }}
+
+{% if v.scopeNote %}
+*Scope note.* {{ v.scopeNote.en }}
+
+*Nota d'ambito.* {{ v.scopeNote.it }}
+
+{% endif %}
+{% if v.altLabel %}
+**Varianti (UF):** {% for lingua, lista in v.altLabel.items() %}{{ lista | join(', ') }} ({{ lingua }}){% if not loop.last %}; {% endif %}{% endfor %}
+
+{% endif %}
+## Relazioni
+
+| | |
+|---|---|
+| **BT** più generale | {% for x in v.broader or [] %}[{{ x | nome }}]({{ x }}.md){% if not loop.last %}; {% endif %}{% else %}—{% endfor %} |
+| **NT** più specifici | {% for x in v.nt %}[{{ x | nome }}]({{ x }}.md){% if not loop.last %}; {% endif %}{% else %}—{% endfor %} |
+| **RT** associati | {% for x in v.rt %}[{{ x | nome }}]({{ x }}.md){% if not loop.last %}; {% endif %}{% else %}—{% endfor %} |
+
+## Fonti
+
+{% for s in v.sources %}
+- {{ fonti[s.ref].title }}{% if s.locator %}, **{{ s.locator }}**{% endif %}{% if fonti[s.ref].url %} ([testo]({{ fonti[s.ref].url }})){% endif %}
+{% endfor %}
+{% if v.alignments %}
+
+## Allineamento agli standard
+
+| Standard | Clausola | Termine nello standard | Relazione | Nota |
+|---|---|---|---|---|
+{% for a in v.alignments %}
+| {{ fonti[a.standard].short or fonti[a.standard].title }} | {{ a.clause }} | {{ a.term }} | `skos:{{ a.relation }}` | {{ a.note | replace('\n', ' ') }}{% if fonti[a.standard].access == 'paid' %} *(standard a pagamento: allineamento non verificato sul testo)*{% endif %} |
+{% endfor %}
+{% endif %}
+
+---
+
+{% if meta.gestione_documentale.repository %}
+[**Proponi una modifica a questa voce**]({{ meta.gestione_documentale.repository }}/issues/new?template=modifica.yml&title=%5BModifica%5D%20{{ v.prefLabel.en | urlencode }}&voce={{ v.id }}) · [come funziona](../../contribuire/)
+{% else %}
+**Proponi una modifica a questa voce**: vedi [come contribuire](../../contribuire/). Il modulo si attiva con la pubblicazione del repository.
+{% endif %}
+
+<script type="application/ld+json">
+{{ {"@context": "https://schema.org", "@type": "DefinedTerm", "termCode": v.id,
+    "name": v.prefLabel.en, "alternateName": v.prefLabel.it, "description": v.definition.en,
+    "inDefinedTermSet": {"@type": meta.distribuzione.schema_org_type, "name": meta.gestione_documentale.title}} | tojson }}
+</script>

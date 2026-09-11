@@ -1,0 +1,79 @@
+# Registro delle fonti normative e degli standard citati dalle voci.
+# Ogni voce del tesauro punta a una chiave di questo file (campo sources[].ref
+# o alignments[].standard). Centralizzare le fonti evita citazioni discordanti.
+ai-act:
+  type: legislation
+  title: "Regulation (EU) 2024/1689 (Artificial Intelligence Act)"
+  title_it: "Regolamento (UE) 2024/1689 (Regolamento sull'intelligenza artificiale)"
+  publisher: "European Parliament and Council"
+  date: "2024-06-13"
+  url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+  access: open
+  license: "Riutilizzo consentito (Decisione 2011/833/UE)"
+coe-framework-convention:
+  type: treaty
+  title: "Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS No. 225)"
+  title_it: "Convenzione quadro del Consiglio d'Europa sull'intelligenza artificiale e i diritti umani, la democrazia e lo Stato di diritto"
+  publisher: "Council of Europe"
+  date: "2024-09-05"
+  url: "https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence"
+  access: open
+gpai-code-of-practice:
+  type: soft-law
+  title: "General-Purpose AI Code of Practice"
+  title_it: "Codice di buone pratiche per l'IA per finalita' generali"
+  publisher: "European Commission / AI Office"
+  date: "2025-07-10"
+  url: "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai"
+  access: open
+ddl-ia-2025:
+  type: legislation
+  title: "Disegno di legge italiano su disposizioni e deleghe in materia di intelligenza artificiale (2025)"
+  title_it: "Disegno di legge italiano in materia di intelligenza artificiale (2025)"
+  publisher: "Senato della Repubblica / Camera dei deputati"
+  date: "2025"
+  url: "https://www.senato.it/"
+  access: open
+iso-iec-22989:
+  short: "ISO/IEC 22989:2022"
+  type: standard
+  title: "ISO/IEC 22989:2022 Information technology - Artificial intelligence - Artificial intelligence concepts and terminology"
+  publisher: "ISO/IEC JTC 1/SC 42"
+  date: "2022-07"
+  url: "https://www.iso.org/standard/74296.html"
+  access: open
+iso-iec-23894:
+  short: "ISO/IEC 23894:2023"
+  type: standard
+  title: "ISO/IEC 23894:2023 Information technology - Artificial intelligence - Guidance on risk management"
+  publisher: "ISO/IEC JTC 1/SC 42"
+  date: "2023-02"
+  url: "https://www.iso.org/standard/77304.html"
+  access: paid
+nist-ai-rmf:
+  short: "NIST AI RMF 1.0"
+  type: framework
+  title: "NIST AI Risk Management Framework (AI RMF 1.0), NIST AI 100-1"
+  publisher: "National Institute of Standards and Technology"
+  date: "2023-01-26"
+  url: "https://doi.org/10.6028/NIST.AI.100-1"
+  access: open
+nist-ai-100-5:
+  short: "NIST AI 100-5"
+  type: framework
+  title: "NIST AI 100-5 (2024, draft)"
+  publisher: "National Institute of Standards and Technology"
+  date: "2024"
+  access: open
+research-literature:
+  type: literature
+  title: "Letteratura scientifica (riferimento generico)"
+  access: open
+hleg-ethics-guidelines:
+  type: soft-law
+  title: "Ethics Guidelines for Trustworthy AI"
+  title_it: "Orientamenti etici per un'IA affidabile"
+  publisher: "High-Level Expert Group on Artificial Intelligence, European Commission"
+  date: "2019-04-08"
+  url: "https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai"
+  access: open

@@ -1,0 +1,58 @@
+id: transparency
+status: proposed
+perspective:
+- legal
+- technical
+- conceptual
+prefLabel:
+  en: Transparency
+  it: Trasparenza
+altLabel:
+  en:
+  - Transparency of AI systems
+definition:
+  en: >-
+    Property of an AI system whose operation, capabilities and limitations are communicated to the
+    persons concerned in a manner they can understand, so that they can interpret its output and use
+    it appropriately.
+  it: >-
+    Proprietà di un sistema di IA il cui funzionamento, le cui capacità e i cui limiti sono
+    comunicati alle persone interessate in modo comprensibile, così che possano interpretarne i
+    risultati e usarlo in modo appropriato.
+scopeNote:
+  en: >-
+    Three meanings meet here. For the law it is an obligation of the provider (information to
+    deployers and to persons exposed to the system); for the standards it is a property of the
+    organisation and of the system; for the ethical debate it is a condition of trust, distinct from
+    explainability, which concerns the reasons of a single output.
+  it: >-
+    Qui si incontrano tre significati. Per il diritto è un obbligo del fornitore (informazioni ai
+    deployer e alle persone esposte al sistema); per gli standard è una proprietà dell'organizzazione
+    e del sistema; per il dibattito etico è una condizione della fiducia, distinta dalla
+    spiegabilità, che riguarda le ragioni di un singolo risultato.
+related:
+- high-risk-ai-system
+- gpai-system
+- trustworthy-ai
+sources:
+- ref: ai-act
+  locator: Art. 13; Art. 50
+- ref: coe-framework-convention
+  locator: Art. 8
+- ref: gpai-code-of-practice
+  locator: Transparency chapter
+alignments:
+- standard: iso-iec-22989
+  clause: "3.5.14"
+  term: transparency
+  relation: closeMatch
+  note: >-
+    Lo standard la definisce come proprietà di un'organizzazione o di un sistema che comunica le
+    attività e le decisioni rilevanti in modo completo, accessibile e comprensibile; il regolamento
+    la formula come obbligo verso deployer e persone esposte. Clausola da verificare sul testo.
+- standard: nist-ai-rmf
+  clause: Sec. 3 (Accountable and Transparent)
+  term: transparent
+  relation: relatedMatch
+  note: >-
+    Il NIST la tratta come una delle caratteristiche dell'IA affidabile, accanto alla responsabilità.

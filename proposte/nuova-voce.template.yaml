@@ -1,0 +1,18 @@
+# Una proposta di voce nuova. Copia in proposte/<numero>-<id>.yaml. Stessi campi del modulo pubblico.
+tipo: nuova-voce
+voce: id-della-voce-nuova              # minuscole, cifre, trattini; non deve esistere
+prefLabel: {en: Term as in the source, it: Termine della versione italiana}
+definition:
+  en: >-
+    Definition copied from the source.
+  it: >-
+    Definizione dalla versione italiana.
+perspective: [legal]                   # legal | technical | conceptual, una o piu'
+broader: []                            # facoltativo: id di voci esistenti
+related: []                            # facoltativo: id di voci esistenti
+sources:
+- ref: ai-act
+  locator: Art. 3(1)
+motivazione: >-
+  Perche' il concetto serve: uso nelle fonti, ambiguita' che risolve, lacuna che colma. Almeno venti parole.
+proponente: chi propone, con il ruolo

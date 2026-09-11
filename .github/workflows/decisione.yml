@@ -1,0 +1,45 @@
+# Quando un editor scrive "/approva motivazione" o "/rifiuta motivazione" nel commento della
+# proposta: il grafo applica la decisione; se accolta, la modifica va in una pull request.
+name: Decisione dell'editor
+on:
+  issue_comment: {types: [created]}
+permissions: {contents: write, issues: write, pull-requests: write}
+jobs:
+  decidi:
+    if: >
+      !github.event.issue.pull_request &&
+      (startsWith(github.event.comment.body, '/approva') || startsWith(github.event.comment.body, '/rifiuta')) &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements.txt
+      - name: Il comando
+        env: {COMMENTO: "${{ github.event.comment.body }}"}
+        run: |
+          echo "ESITO=$(echo "$COMMENTO" | head -1 | cut -c2- | cut -d' ' -f1)" >> "$GITHUB_ENV"
+          echo "MOTIVAZIONE=$(echo "$COMMENTO" | head -1 | cut -d' ' -f2-)" >> "$GITHUB_ENV"
+          echo "FILE=$(ls proposte/$(printf '%03d' ${{ github.event.issue.number }})-*.yaml | head -1)" >> "$GITHUB_ENV"
+          git config user.name "istruttoria automatica"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: La decisione
+        env:
+          OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
+          OLLAMA_MODEL: ${{ vars.OLLAMA_MODEL }}
+        run: ./proposta.sh "$FILE" "$ESITO" "$MOTIVAZIONE" < /dev/null
+      - name: Pull request, oppure chiusura
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          RAMO="proposta/$(basename "$FILE" .yaml)"; N=${{ github.event.issue.number }}
+          if git rev-parse --verify -q "$RAMO" > /dev/null; then
+            git push origin "$RAMO"
+            PR=$(gh pr create --base main --head "$RAMO" --title "$(git log "$RAMO" -1 --format=%s)" \
+                 --body "$(git log "$RAMO" -1 --format=%b)"$'\n\n'"Closes #$N")
+            git checkout -q "$RAMO"                  # l'esito "approvata" e' nel file sul ramo, non su main
+            python3 scripts/esito_issue.py "$FILE" "$N" "$PR"
+          else
+            git push origin main                     # il file della proposta con l'esito
+            python3 scripts/esito_issue.py "$FILE" "$N"
+          fi

@@ -1,0 +1,23 @@
+id: safety-component-of-a-product-or-system
+status: deprecated
+perspective:
+- legal
+- technical
+prefLabel:
+  en: Safety component of a product or system
+  it: Componente di sicurezza di un prodotto o sistema
+definition:
+  en: >-
+    A component of a product or of a system which serves to fulfil a safety function for that product
+    or system, or the failure or malfunctioning of which endangers the health and safety of persons or
+    property.
+  it: >-
+    Componente di un prodotto o di un sistema che svolge una funzione di sicurezza per tale prodotto o
+    sistema, oppure il cui guasto o malfunzionamento mette in pericolo la salute e la sicurezza di persone
+    o beni.
+related:
+- high-risk-ai-system
+replacedBy: safety-component
+sources:
+- ref: ai-act
+  locator: Art. 3(14)

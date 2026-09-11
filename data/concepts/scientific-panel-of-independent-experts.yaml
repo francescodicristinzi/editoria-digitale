@@ -1,0 +1,24 @@
+id: scientific-panel-of-independent-experts
+status: approved
+perspective:
+- legal
+prefLabel:
+  en: Scientific panel of independent experts
+  it: Pannello scientifico di esperti indipendenti
+altLabel:
+  en:
+  - Expert group
+  it:
+  - Gruppo di esperti scientifici indipendenti
+definition:
+  en: >-
+    A body of experts established to advise the AI Office, especially on GPAI systemic risks and technical
+    matters.
+  it: >-
+    Organo di esperti istituito per fornire consulenza all'Ufficio per l'IA, in particolare sui rischi
+    sistemici dei modelli di IA per finalità generali e sulle questioni tecniche.
+related:
+- ai-office
+sources:
+- ref: ai-act
+  locator: Art. 3(61), Art. 90

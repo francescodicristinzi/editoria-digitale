@@ -1,0 +1,71 @@
+# GENERATO da scripts/build.py (templates/issue-nuova-voce.yml.j2): non modificare a mano.
+name: "Proponi una voce nuova"
+description: "Un concetto che il tesauro non ha ancora."
+title: "[Nuova voce] "
+labels: ["proposta", "nuova-voce"]
+body:
+  - type: markdown
+    attributes:
+      value: "Prima di proporre, cerca il termine nell'indice: potrebbe esserci con un altro nome. I campi con * sono obbligatori."
+  - type: input
+    id: prefLabel_en
+    attributes: {label: "Termine (EN)", description: "Come lo scrive la fonte."}
+    validations: {required: true}
+  - type: input
+    id: prefLabel_it
+    attributes: {label: "Termine (IT)", description: "Dalla versione italiana ufficiale, se esiste."}
+    validations: {required: true}
+  - type: textarea
+    id: definition_en
+    attributes: {label: "Definizione (EN)", description: "Citata dalla fonte, non parafrasata."}
+    validations: {required: true}
+  - type: textarea
+    id: definition_it
+    attributes: {label: "Definizione (IT)"}
+  - type: dropdown
+    id: perspective
+    attributes:
+      label: "Prospettive"
+      description: "Da quali mondi il concetto è definito."
+      multiple: true
+      options: ["legal", "technical", "conceptual"]
+    validations: {required: true}
+  - type: dropdown
+    id: fonte
+    attributes:
+      label: "Fonte"
+      options:
+        - "ai-act — Regulation (EU) 2024/1689 (Artificial Intelligence Act)"
+        - "coe-framework-convention — Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS No. 225)"
+        - "gpai-code-of-practice — General-Purpose AI Code of Practice"
+        - "ddl-ia-2025 — Disegno di legge italiano su disposizioni e deleghe in materia di intelligenza artificiale (2025)"
+        - "iso-iec-22989 — ISO/IEC 22989:2022"
+        - "iso-iec-23894 — ISO/IEC 23894:2023"
+        - "nist-ai-rmf — NIST AI RMF 1.0"
+        - "nist-ai-100-5 — NIST AI 100-5"
+        - "research-literature — Letteratura scientifica (riferimento generico)"
+        - "hleg-ethics-guidelines — Ethics Guidelines for Trustworthy AI"
+    validations: {required: true}
+  - type: input
+    id: locatore
+    attributes: {label: "Punto preciso della fonte", placeholder: "Art. 4; Clause 3.1.7"}
+    validations: {required: true}
+  - type: textarea
+    id: relazioni
+    attributes:
+      label: "Relazioni con voci esistenti"
+      description: "Facoltativo. Identificativi delle voci: BT per il termine più generale, RT per gli associati."
+      placeholder: "BT: ai-system\nRT: high-risk-ai-system, transparency"
+  - type: textarea
+    id: motivazione
+    attributes:
+      label: "Motivazione"
+      description: "Perché il concetto serve: uso nelle fonti, ambiguità che risolve, lacuna che colma. Almeno venti parole."
+    validations: {required: true}
+  - type: checkboxes
+    id: condizioni
+    attributes:
+      label: "Condizioni"
+      options:
+        - label: "Accetto che proposta, discussione e decisione motivata siano pubbliche, con licenza CC BY 4.0."
+          required: true

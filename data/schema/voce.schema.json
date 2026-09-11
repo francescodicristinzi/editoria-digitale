@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Voce del tesauro",
+  "description": "Il contratto del modello descritto in data/concepts/README.md: quali campi esistono, quali sono obbligatori, quali valori sono ammessi.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "status", "perspective", "prefLabel", "definition", "sources"],
+  "properties": {
+    "id":          {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "status":      {"enum": ["approved", "proposed", "deprecated"]},
+    "perspective": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["legal", "technical", "conceptual"]}},
+    "prefLabel":   {"$ref": "#/$defs/bilingue", "required": ["en"]},
+    "altLabel":    {"type": "object", "additionalProperties": false,
+                    "properties": {"en": {"$ref": "#/$defs/lista"}, "it": {"$ref": "#/$defs/lista"}}},
+    "definition":  {"$ref": "#/$defs/bilingue", "required": ["en"]},
+    "scopeNote":   {"$ref": "#/$defs/bilingue"},
+    "broader":     {"$ref": "#/$defs/ids"},
+    "related":     {"$ref": "#/$defs/ids"},
+    "sources":     {"type": "array", "minItems": 1, "items": {
+                      "type": "object", "additionalProperties": false, "required": ["ref"],
+                      "properties": {"ref": {"type": "string"}, "locator": {"type": "string", "minLength": 1}}}},
+    "alignments":  {"type": "array", "items": {
+                      "type": "object", "additionalProperties": false, "required": ["standard", "clause", "term", "relation"],
+                      "properties": {
+                        "standard": {"type": "string"}, "clause": {"type": ["string", "number"]}, "term": {"type": "string"},
+                        "relation": {"enum": ["exactMatch", "closeMatch", "broadMatch", "narrowMatch", "relatedMatch"]},
+                        "note": {"type": "string"}}}},
+    "replacedBy":  {"type": "string"}
+  },
+  "$defs": {
+    "bilingue": {"type": "object", "additionalProperties": false,
+                 "properties": {"en": {"type": "string", "minLength": 1}, "it": {"type": "string", "minLength": 1}}},
+    "lista":    {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "ids":      {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}
+  }
+}

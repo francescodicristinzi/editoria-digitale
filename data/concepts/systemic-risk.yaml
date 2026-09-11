@@ -1,0 +1,25 @@
+id: systemic-risk
+status: approved
+perspective:
+- legal
+- technical
+prefLabel:
+  en: Systemic risk
+  it: Rischio sistemico
+definition:
+  en: >-
+    A risk that is specific to the high-impact capabilities of general-purpose AI models, having a significant
+    impact on the Union market due to their reach, or due to actual or reasonably foreseeable negative
+    effects on public health, safety, public security, fundamental rights, or the society as a whole,
+    that can be propagated at scale across the value chain.
+  it: >-
+    Rischio specifico delle capacità ad alto impatto dei modelli di IA per finalità generali, avente un
+    impatto significativo sul mercato dell'Unione a causa della sua portata o di effetti negativi effettivi
+    o ragionevolmente prevedibili sulla salute pubblica, la sicurezza, i diritti fondamentali o la società
+    nel suo complesso, che può propagarsi su larga scala lungo la catena del valore.
+related:
+- capability-with-high-impact
+- scientific-panel-of-independent-experts
+sources:
+- ref: ai-act
+  locator: Art. 3(65)

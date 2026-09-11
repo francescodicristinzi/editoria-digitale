@@ -1,0 +1,62 @@
+---
+title: "{{ meta.gestione_documentale.title }}"
+subtitle: "{{ meta.gestione_documentale.title_it }} · versione {{ meta.gestione_documentale.version }}"
+author: "{{ meta.archiviazione.creator }}"
+date: "{{ meta.archiviazione.date }}"
+lang: it
+rights: "{{ meta.archiviazione.rights }}"
+---
+
+# Come leggere questo documento
+
+Ogni voce riporta il termine inglese e quello italiano, la definizione citata dalla fonte
+nelle due lingue, le varianti non preferite (**UF**), le relazioni con le altre voci e le
+fonti con il punto preciso. **BT** è il termine più generale, **NT** i più specifici,
+**RT** i termini associati. L'allineamento agli standard dice come il termine corrisponde a
+un concetto di uno standard tecnico e con quale relazione.
+
+Voci: {{ voci | length }}. Licenza: {{ meta.archiviazione.rights }}. La versione di riferimento è
+quella pubblicata sul sito.
+
+# Le voci
+
+{% for v in voci.values() | sort(attribute='prefLabel.en') %}
+## {{ v.prefLabel.en }} / {{ v.prefLabel.it }}
+
+*{{ {'approved': 'approvata', 'proposed': 'proposta', 'deprecated': 'ritirata'}[v.status] }} · prospettiva {{ v.perspective | join(', ') }}*
+{% if v.status == 'deprecated' %}
+
+**Voce ritirata.** Usare *{{ v.replacedBy | nome }}*.
+{% endif %}
+
+**EN.** {{ v.definition.en }}
+
+**IT.** {{ v.definition.it }}
+{% if v.scopeNote %}
+
+*Nota d'ambito.* {{ v.scopeNote.it }}
+{% endif %}
+{% if v.altLabel %}
+
+**UF:** {% for lingua, lista in v.altLabel.items() %}{{ lista | join(', ') }} ({{ lingua }}){% if not loop.last %}; {% endif %}{% endfor %}
+{% endif %}
+{% if v.broader %}
+
+**BT:** {% for x in v.broader %}{{ x | nome }}{% if not loop.last %}; {% endif %}{% endfor %}
+{% endif %}
+{% if v.nt %}
+
+**NT:** {% for x in v.nt %}{{ x | nome }}{% if not loop.last %}; {% endif %}{% endfor %}
+{% endif %}
+{% if v.rt %}
+
+**RT:** {% for x in v.rt %}{{ x | nome }}{% if not loop.last %}; {% endif %}{% endfor %}
+{% endif %}
+
+**Fonti:** {% for s in v.sources %}{{ fonti[s.ref].title }}{% if s.locator %}, {{ s.locator }}{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}
+{% if v.alignments %}
+
+**Allineamenti:** {% for a in v.alignments %}{{ fonti[a.standard].short or fonti[a.standard].title }}, {{ a.clause }}, "{{ a.term }}", {{ a.relation }}{% if fonti[a.standard].access == 'paid' %} (standard a pagamento, non verificato sul testo){% endif %}{% if not loop.last %}; {% endif %}{% endfor %}
+{% endif %}
+
+{% endfor %}

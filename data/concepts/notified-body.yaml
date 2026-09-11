@@ -1,0 +1,22 @@
+id: notified-body
+status: approved
+perspective:
+- legal
+prefLabel:
+  en: Notified body
+  it: Organismo notificato
+altLabel:
+  en:
+  - Certification body
+definition:
+  en: >-
+    A conformity assessment body designated in accordance with this Regulation to carry out conformity
+    assessment tasks.
+  it: >-
+    Organismo di valutazione della conformità designato a norma del regolamento per svolgere attività
+    di valutazione della conformità.
+related:
+- conformity-assessment
+sources:
+- ref: ai-act
+  locator: Art. 3(22)

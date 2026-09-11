@@ -1,0 +1,21 @@
+site_name: AI Governance Thesaurus
+docs_dir: docs
+theme:
+  name: material
+  language: it
+  custom_dir: overrides      # solo i meta Dublin Core nell'<head>
+nav:
+  - Indice: index.md
+  - Fonti e standard: fonti.md
+  - Come contribuire: contribuire.md
+# La ricerca usa le parole vuote inglesi anche se l'interfaccia e' in italiano:
+# nella lista italiana "ai" e' una preposizione e verrebbe scartata, e con essa
+# "AI system", "AI Office". Verificato: la pagina c'era, la ricerca non la trovava.
+plugins:
+  - search:
+      lang: en
+extra_css: [assets/filtri.css]
+extra_javascript: [assets/filtri.js]
+markdown_extensions:
+  - admonition
+  - tables

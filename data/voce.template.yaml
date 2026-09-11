@@ -1,0 +1,41 @@
+# Copia questo file in data/concepts/<id>.yaml, riempi, cancella le righe che non usi.
+# Sta fuori da concepts/ apposta: tutto cio' che e' in quella cartella e' una voce.
+id: identificativo-in-minuscolo-con-trattini   # obbligatorio, uguale al nome del file, per sempre
+status: proposed                                # obbligatorio: proposed | approved | deprecated
+perspective:                                    # obbligatorio, almeno una: legal | technical | conceptual
+- legal
+prefLabel:                                      # obbligatorio: il termine come lo scrive la fonte
+  en: Term as written in the source
+  it: Termine della versione italiana ufficiale
+altLabel:                                       # facoltativo: sigle e sinonimi non preferiti (UF)
+  en:
+  - Variant
+  it:
+  - Variante
+definition:                                     # obbligatorio: citata dalla fonte, non parafrasata
+  en: >-
+    Definition copied from the source.
+  it: >-
+    Definizione copiata dalla versione italiana.
+scopeNote:                                      # facoltativo: quando usare questo termine e non un altro
+  en: >-
+    Use for ...; for ... use '...'.
+  it: >-
+    Usare per ...; per ... usare '...'.
+broader:                                        # facoltativo: id dei termini piu' generali (BT)
+- id-di-un-termine
+related:                                        # facoltativo: id dei termini associati (RT), da una parte sola
+- id-di-un-termine
+sources:                                        # obbligatorio, almeno una: DA DOVE VIENE la definizione
+- ref: ai-act                                   # chiave di data/sources.yaml
+  locator: Art. 3(1)                            # il punto preciso: articolo, comma, clausola, pagina
+alignments:                                     # facoltativo: A CHE COSA CORRISPONDE in uno standard
+- standard: iso-iec-22989                       # chiave di data/sources.yaml
+  clause: "3.1.4"
+  term: term used by the standard
+  relation: closeMatch                          # exactMatch | closeMatch | broadMatch | narrowMatch | relatedMatch
+  note: >-
+    In che cosa la definizione dello standard differisce da quella della fonte.
+                                                # se lo standard e' a pagamento lo dice il registro (access: paid):
+                                                # l'avvertenza sul sito la mette il build, non tu
+replacedBy: id-della-voce-sostitutiva           # solo se status: deprecated

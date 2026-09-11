@@ -1,0 +1,14 @@
+# Una proposta di modifica a una voce esistente. Copia in proposte/<numero>-<voce>.yaml.
+# Sono gli stessi campi che avra' il modulo pubblico: chi propone non tocca le voci.
+tipo: modifica
+voce: id-della-voce                    # obbligatorio: deve esistere
+campo: definition.it                   # quale campo: prefLabel.it, definition.en/it, scopeNote.en/it,
+                                       #   altLabel.en/it, related, broader
+valore: >-                             # il nuovo valore: testo per i campi di testo,
+  Il testo proposto.                   #   un elenco per altLabel, related, broader (si aggiunge)
+motivazione: >-                        # obbligatoria, almeno venti parole: perche' la voce attuale
+  Perche' la voce attuale non va bene e perche' la modifica la migliora.   # non va e perche' cosi' migliora
+sources:                               # obbligatoria, almeno una, con il punto preciso
+- ref: ai-act
+  locator: Art. 3(1)
+proponente: chi propone, con il ruolo  # facoltativo
